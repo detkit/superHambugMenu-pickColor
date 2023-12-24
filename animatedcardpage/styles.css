@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Barlow', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.square {
+  position: relative;
+  top: -90px;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.square span {
+  position: absolute;
+  inset: 0;
+  border: 2px solid #333;
+  opacity: 0.5;
+}
+
+.square span:nth-child(1) {
+  border-radius: 43% 57% 73% 27% / 40% 40% 60% 60%;
+  animation: square 6s linear infinite;
+}
+
+.square span:nth-child(2) {
+  border-radius: 84% 16% 37% 63% / 21% 53% 47% 79%;
+  animation: square 4s linear infinite;
+}
+
+.square span:nth-child(3) {
+  border-radius: 49% 51% 68% 32% / 24% 54% 46% 76%;
+  animation: square2 4s linear infinite;
+}
+
+@keyframes square {
+  0% {
+    rotate: 0deg;
+  }
+
+  100% {
+    rotate: 360deg;
+  }
+}
+
+@keyframes square2 {
+  0% {
+    rotate: 360deg;
+  }
+
+  100% {
+    rotate: 0deg;
+  }
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 40px 50px;
+  background-color: #66a3ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.bottom .wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url(images/wave.png);
+  background-size: 1000px 100px;
+}
+
+.bottom .wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animate 4s linear infinite;
+}
+
+.bottom .wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animate2 4s linear infinite;
+}
+
+.bottom .wave#wave3 {
+  z-index: 998;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animate 3s linear infinite;
+}
+
+.bottom .wave#wave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animate2 3s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: 1000px;
+  }
+
+  100% {
+    background-position-x: 0px;
+  }
+}
+
+@keyframes animate2 {
+  0% {
+    background-position-x: 0px;
+  }
+
+  100% {
+    background-position-x: 1000px;
+  }
+}
+
+.icon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  gap: 40px;
+}
+
+.icon .imgBox {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: 0.5s;
+  box-shadow: 0 0 0 4px #fff;
+  opacity: 0.5;
+}
+
+.imgBox.active {
+  opacity: 1;
+  scale: 1.2;
+  margin: 0 10px;
+  box-shadow: 0 0 0 4px #fff, 0 0 0 10px #66a3ff, 0 0 0 12px #fff;
+}
+
+.icon .imgBox img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contentBox {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  transform: scale(0);
+  opacity: 0;
+}
+
+.contentBox.active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.contentBox .card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 15px;
+}
+
+.card .imgBox {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.card .imgBox img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card .textBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.textBox h2 {
+  position: relative;
+  font-size: 1.25em;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.1em;
+  text-transform: uppercase;
+}
+
+.textBox h2 b {
+  font-size: 0.55em;
+  font-weight: 500;
+  color: #444;
+  letter-spacing: 0.1em;
+}
+
+.card .social {
+  position: relative;
+  display: flex;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.social li {
+  list-style: none;
+}
+
+.social li a {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: 0.5s;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.card .social li a:hover {
+  background-color: #66a3ff;
+  color: #111;
+}

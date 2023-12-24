@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'PT Serif', serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(#0044ff, #090d18);
+}
+
+.card {
+  position: relative;
+  width: 320px;
+  height: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.poster {
+  position: relative;
+  overflow: hidden;
+}
+
+.poster::before {
+  content: '';
+  position: absolute;
+  bottom: -180px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, #0044ff 50%, transparent);
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.card:hover .poster::before {
+  bottom: 0px;
+}
+
+.poster img {
+  width: 100%;
+  transition: 0.5s;
+}
+
+.card:hover .poster img {
+  transform: translateY(-50px);
+  filter: blur(5px);
+}
+
+.details {
+  position: absolute;
+  bottom: -173px;
+  left: 0;
+  padding: 20px;
+  width: 100%;
+  z-index: 2;
+  transition: 0.5s;
+}
+
+.card:hover .details {
+  bottom: 40px;
+}
+
+.details .logo {
+  max-width: 180px;
+}
+
+.details h3 {
+  font-size: 14px;
+  color: #fff;
+}
+
+.details .rating {
+  position: relative;
+  padding: 5px 0;
+}
+
+.details .rating .fa-star {
+  color: #f7f406;
+  font-size: 1em;
+}
+
+.details .rating span {
+  color: #fff;
+  margin-left: 5px;
+}
+
+.details .tags span {
+  padding: 2px 5px;
+  color: #fff;
+  background: #196ac5;
+  border-radius: 4px;
+}
+
+.details .tags span:nth-child(2) {
+  background: #ff5722;
+}
+
+.details .info {
+  color: #fff;
+  margin-top: 20px;
+}
+
+.details .cast {
+  position: relative;
+}
+
+.details .cast h4 {
+  color: #fff;
+  margin-top: 10px;
+}
+
+.details .cast ul {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.details .cast ul li {
+  list-style: none;
+  width: 35px;
+  height: 35px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+ul li img {
+  max-width: 100%;
+}
